@@ -1,6 +1,6 @@
 var r = require('rethinkdb')
 
-var table = r.table('users')
+var table = r.table('badges')
 
 // set me from the outside
 var run = null
@@ -16,9 +16,9 @@ exports.findAll = function() {
     return run(table)
 }
 
-exports.insert = function(user) {
-    delete user.id
-    return run(table.insert(user))
+exports.insert = function(badge) {
+    delete badge.id
+    return run(table.insert(badge))
 }
 
 exports.delete = function(id) {
