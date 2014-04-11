@@ -20,3 +20,9 @@ exports.findOne = function(id) {
 exports.findAll = function() {
     return run(table)
 }
+
+exports.insert = function(user) {
+    console.log("INSERT", user)
+    delete user.id
+    return run(table.insert(user))
+}

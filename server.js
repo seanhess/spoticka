@@ -37,7 +37,10 @@ app.get('/users/:id', function*(next) {
 })
 
 app.post('/users', function*(next) {
-    this.body = this.request.body
+    var user = this.request.body
+    yield User.insert(user)
+    this.status = 200
+    this.body = "OK"
 })
 
 app.listen(3000)
