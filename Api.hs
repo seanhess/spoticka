@@ -1,13 +1,14 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 
 import Web.Scotty
 import Data.Monoid (mconcat)
-import Network.HTTP.Types (status302, status200, status404, status500)
+import Network.HTTP.Types (status302, status200, status400, status404, status500)
 
-import Spotika.User
-import Spotika.Badge (Badge)
-import Spotika.Event (Event)
+import Spoticka.User
+import Spoticka.Badge (Badge)
+import Spoticka.Event (Event)
 
 import Control.Monad.IO.Class (liftIO)
 
@@ -24,21 +25,27 @@ main = do
 api :: R.RethinkDBHandle -> IO ()
 api h = scotty 3000 $ do
 
-    get "/fake" $ do
-        json $ fakeUsers
+    let run q = liftIO $ R.run h q
+    let run' q = liftIO $ R.run' h q
 
     get "/users" $ do
-        users <- liftIO $ (R.run h usersTable :: IO ([User]))
-        json $ users
+        users <- run usersTable
+        json $ (users :: [User])
 
     -- get "/users/:id" $ do
         -- userId <- param "id"
         -- json $
 
-    post "/users" $ do
-        liftIO $ R.run' h (usersInsert fakeUserSean)
+    post "/users" $ decodeBody $ \user -> do
+        run' (usersInsert user)
         status status200
         text "OK"
+
+    --put "/users/:id" $ decodeBody $ \user -> do
+        --userId <- param "id"
+        --run' (usersReplace userId user)
+        --status status200
+        --text "OK"
 
     get "/:word" $ do
         beam <- param "word"
@@ -51,3 +58,14 @@ initData = do
     h1 <- R.connect "localhost" 28015 Nothing
     let h = R.use h1 (R.db "spotika")
     return h
+
+-- parse the body as something, and call "k" with the result
+decodeBody :: (Aeson.FromJSON a) => (a -> ActionM ()) -> ActionM ()
+decodeBody k = do
+    b <- body
+    let mo = Aeson.decode b
+    case mo of
+        Just o -> k o
+        Nothing -> do
+            status status400
+            text $ "Invalid Body JSON"

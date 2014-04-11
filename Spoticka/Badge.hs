@@ -1,5 +1,5 @@
 
-module Spotika.Badge where
+module Spoticka.Badge where
 
 data Badge = Badge {
     id   :: String,

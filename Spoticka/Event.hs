@@ -1,6 +1,6 @@
-module Spotika.Event where
+module Spoticka.Event where
 
-import Spotika.Badge
+import Spoticka.Badge
 
 data Event = Event {
     id   :: String,
