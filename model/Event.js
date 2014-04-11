@@ -1,4 +1,5 @@
 var r = require('rethinkdb')
+var db = require('./db')
 
 var table = r.table('events')
 
@@ -16,9 +17,10 @@ exports.findAll = function() {
     return run(table)
 }
 
-exports.insert = function(event) {
-    delete event.id
-    return run(table.insert(event))
+exports.insert = function*(item) {
+    delete item.id
+    var result = yield run(table.insert(item))
+    return db.toKey(result)
 }
 
 exports.delete = function(id) {

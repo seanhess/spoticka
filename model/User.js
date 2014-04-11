@@ -1,4 +1,5 @@
 var r = require('rethinkdb')
+var db = require('./db')
 
 var table = r.table('users')
 
@@ -16,11 +17,18 @@ exports.findAll = function() {
     return run(table)
 }
 
-exports.insert = function(user) {
-    delete user.id
-    return run(table.insert(user))
+exports.insert = function*(item) {
+    delete item.id
+    var result = yield run(table.insert(item))
+    return db.toKey(result)
 }
 
 exports.delete = function(id) {
     return run(table.get(id).delete())
 }
+
+// {generated_keys: ["asdfasdf"]}
+
+// key users by facebook
+// facebook
+// find or create on login

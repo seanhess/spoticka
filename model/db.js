@@ -16,3 +16,8 @@ exports.run = function(conn, query) {
         })
     })
 }
+
+
+exports.toKey = function(result) {
+    return { id: result.generated_keys[0] }
+}

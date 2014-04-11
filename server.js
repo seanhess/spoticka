@@ -58,7 +58,7 @@ app.delete('/users/:id', function*() {
 
 app.post('/users', function*() {
     var user = this.request.body
-    yield User.insert(user)
+    this.body = yield User.insert(user)
 })
 
 
@@ -78,7 +78,7 @@ app.delete('/events/:id', function*() {
 
 app.post('/events', function*() {
     var event = this.request.body
-    yield Event.insert(event)
+    this.body = yield Event.insert(event)
 })
 
 
@@ -98,12 +98,12 @@ app.delete('/badges/:id', function*() {
 
 app.post('/badges', function*() {
     var badge = this.request.body
-    yield Badge.insert(badge)
+    this.body = yield Badge.insert(badge)
 })
 
 
 
 
 
-app.listen(3000)
+app.listen(5050)
 console.log("Started on 3000")
