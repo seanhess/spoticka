@@ -3,20 +3,15 @@ var router = require('koa-router')
 var User = require('./model/User')
 var r = require('rethinkdb')
 var body = require('koa-body')
-var db = require('./model/db')
+
 
 // DATABSE CONNECTION /////////////
 
 var conn = null
-function run(query) {
-    return db.run(conn, query)
-}
 
 r.connect({host:'localhost', port:28015, db:'spoticka'}, function(err, c) {
-    conn = c
-    User.init(run)
+    User.init(c)
 })
-
 
 var app = koa()
 
@@ -31,32 +26,22 @@ app.use(function*(next) {
 
 app.use(router(app))
 
-app.get('/users', function*() {
+app.get('/users', function*(next) {
     var users = yield User.findAll()
     this.body = users
 })
 
-app.get('/users/:id', function*() {
+app.get('/users/:id', function*(next) {
     var user = yield User.findOne(this.params.id)
     this.body = user
 })
 
-app.delete('/users/:id', function*() {
-    yield User.delete(this.params.id)
-    this.status = 200
-    this.body = "OK"
-})
-
-
-app.post('/users', function*() {
+app.post('/users', function*(next) {
     var user = this.request.body
     yield User.insert(user)
     this.status = 200
     this.body = "OK"
 })
-
-
-
 
 app.listen(3000)
 console.log("Started on 3000")
