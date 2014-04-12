@@ -10,8 +10,8 @@
 		<link rel="stylesheet" href="css/jquery.mobile.datepicker.css" />
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 		<link 	rel="stylesheet/less" href="css/styles.less" type="text/css" />
-		
-		
+
+
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script>
 		<script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.js"></script>
@@ -27,7 +27,7 @@
 		<div id="fb-root"></div>
 
 		<div class='header getCoordinates'><h3>Spoticka</h3></div>
-		
+
 		<div class='nav notLoggedInNav'>
 			<div class='loginBtn'>Login</div>
 			<div class='registerBtn'>Register</div>
@@ -72,7 +72,8 @@
 			<div class='closeBtn'></div>
 			<div class='loginPageWrapInner pageWrapInner'>
 				<h3>Login</h3>
-				<div class='fbLogin'></div>
+<!-- 				<div class='fbLogin'></div> -->
+				<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 				<div class='loginWithoutFb' style='display:none'>Login without facebook?</div>
 				<br/><br/>
 				<form role="form" class='noFbLogin'>
@@ -94,7 +95,8 @@
 			<div class='closeBtn'></div>
 			<div class='loginPageWrapInner pageWrapInner'>
 				<h3>Register</h3>
-				<div class='fbLogin'></div>
+<!-- 				<div class='fbLogin'></div> -->
+				<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 				<div class='loginWithoutFb' style='display:none'>Login without facebook?</div>
 				<br/><br/>
 				<form role="form" class='noFbLogin'>
@@ -177,8 +179,9 @@
 	    $(function(){
 	    	$('.datepicker').pickadate()
 	    });
-	    	
+
 	    </script>
+		<script type='text/javascript' src='js/fb.js'></script>
 		<script type='text/javascript' src='js/alljs.js'></script>
 	</body>
 </html>
