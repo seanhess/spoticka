@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script>
+
+
+
+	</head>
+
+	<form class='submitForm'>
+		<input type='text' name='name' placeholder='name'/>
+		<input type='text' name='image' placeholder='image'/>
+		<button type='submit' class='submit'>submit</button>
+	<body>
+
+		<script type='text/javascript'>
+			$(document).ready(function(){
+				$('.submit').click(function(e){
+					e.preventDefault();
+					var badge = {
+						name:$('input[name=name]').val(),
+						image:$('input[name=image]').val(),
+					}
+					$.post("http://spoticka.orbit.al:5050/badges", badge, function(result){
+						console.log(result);
+					});
+				})
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+	<head>
+
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+
+		<link 	rel='stylesheet'	href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700|Nixie+One|Josefin+Sans:100,400,700'  type='text/css'>
+		<link 	rel="stylesheet" 	href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="css/jquery.mobile.datepicker.css" />
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link 	rel="stylesheet/less" href="css/styles.less" type="text/css" />
+		
+		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script>
+		<script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCJSIbeHtaXGXdagGR4DHa2R7jUxPEijqQ&sensor=false&libraries=drawing"></script>
+		<script src="js/jquery.mobile.datepicker.js"></script>
+
+		<!-- less must be compiled last -->
+		<script type="text/javascript"	src="js/less.js" ></script>
+
+	</head>
+
+	<body>
+		<div id="fb-root"></div>
+
+		<div class='header getCoordinates'><h3>Spoticka</h3></div>
+		
+		<div class='nav notLoggedInNav'>
+			<div class='loginBtn'>Login</div>
+			<div class='registerBtn'>Register</div>
+		</div>
+
+		<div class='nav loggedInNav'>
+			<div class='createBountyBtn'>Create a Bounty</div>
+			<div class='myBadgesBtn'>My Badges</div>
+		</div>
+
+		<div class="mapWrap">
+			<div class="innerMapWrap">
+				<div id="map"></div>
+			</div>
+		</div>
+
+		<!-- map bounty popup -->
+		<div class='mapBountyDetails'>
+			<div class='mapBountyDetailsInner'>
+				<h2 class='mapBountyPoints'></h2>
+				<h2 class='mapBountyName'></h2>
+				<br/>
+				<div class='mapBountyBadges'>
+					<div class='mapBountyBadgeImage'>
+						<img src=''/>
+					</div>
+					<div class='mapBountyBadgeName'></div>
+				</div>
+				<div class='clear'></div>
+			</div>
+			<div class='claimBadgeBtn'>Claim Badge</div>
+			<div class='commitToEventBtn'>I'm Coming</div>
+			<div class='showEventDetailsBtn'>Tell me more</div>
+			<div class='clear'></div>
+		</div>
+
+
+		<div class='mapOverlay'></div>
+
+		<!--- LOGIN PAGE -->
+		<div class='loginPageWrap pageWrap' style='display:none'>
+			<div class='closeBtn'></div>
+			<div class='loginPageWrapInner pageWrapInner'>
+				<h3>Login</h3>
+				<div class='fbLogin'></div>
+				<div class='loginWithoutFb' style='display:none'>Login without facebook?</div>
+				<br/><br/>
+				<form role="form" class='noFbLogin'>
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Email address</label>
+				    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">Password</label>
+				    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				  </div>
+				  <button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+
+		<!-- REGISTER PAGE -->
+		<div class='loginPageWrap pageWrap' style='display:none'>
+			<div class='closeBtn'></div>
+			<div class='loginPageWrapInner pageWrapInner'>
+				<h3>Register</h3>
+				<div class='fbLogin'></div>
+				<div class='loginWithoutFb' style='display:none'>Login without facebook?</div>
+				<br/><br/>
+				<form role="form" class='noFbLogin'>
+				  <div class="form-group">
+				    <label for="username">Username</label>
+				    <input type="text" class="form-control" id="username" placeholder="username">
+				  </div>
+				  <div class="form-group">
+				    <label for="email_register">Email address</label>
+				    <input type="email" class="form-control" id="email_register" placeholder="username">
+				  </div>
+				  <div class="form-group">
+				    <label for="password_register">Password</label>
+				    <input type="password" class="form-control" id="password_register" placeholder="Password">
+				  </div>
+				  <div class="form-group">
+				    <label for="password_confirm_register">Password</label>
+				    <input type="password" class="form-control" id="password_confirm_register" placeholder="Password">
+				  </div>
+				  <button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+
+
+		<!--- EVENT DETAILS PAGE -->
+		<div class='eventDetailsPageWrap pageWrap' style='display:none'>
+			<div class='closeBtn'></div>
+			<div class='eventDetailsPageWrapInner pageWrapInner'>
+				<h1 class='eventDetailsName'>This is the Event Name</h1>
+				<div class='eventDetailsBadges'>
+					<div class='eventDetailsBadgeImage'>
+						<img src=''/>
+					</div>
+					<div class='eventDetailsBadgeName'></div>
+				</div>
+				<h3>Hosted By: [Waldo]</h3>
+				<p>Heres the description</p>
+			</div>
+		</div>
+
+		<!--- Create a bounty Page -->
+		<div class='createBountyPageWrap pageWrap' style='display:none'>
+			<div class='closeBtn'></div>
+			<div class='createBountyPageWrapInner pageWrapInner'>
+				<h1>Create a Bounty!</h1>
+				<h3>Step 1: choose your spot (drag the marker)</h3>
+				<div id='chooseBountyMap'>
+ 				</div>
+ 				<span class='bountyCoordinates'>Coordinates: </span>
+				<h3>Step 2: choose which badge to offer</h3>
+				<div class='myBadgesList'>
+				</div>
+				<div class='clear'></div>
+				<div class='getNewBadgeBtn'>Or get an unused badge.. ($20)</div>
+				<div class='createBadgeBtn'>Or create a custom badge.. ($1000)</div>
+
+				<h3>Step 3: Event Details</h3>
+				<input type='text' name='eventName' class='bountyRegisterName' placeholder='event Name'/>
+				<textarea name='eventDescription' class='bountyRegisterDescription' placeholder='event Description'></textarea>
+				<input type="text" data-role="date" data-inline="false" placeholder="Event Date">
+				<input type='hidden' id='bountyRegisterCoordinates'>
+				<input type='hidden' id='bountyRegisterBadgeName'>
+				<button role='button' class='btn btn-primary'>Submit</button>
+			</div>
+		</div>
+
+		<!--- My Badges Page -->
+		<div class='myBadgesPageWrap pageWrap' style='display:none'>
+			<div class='closeBtn'></div>
+			<div class='myBadgesPageWrapInner pageWrapInner'>
+				<h1>Your Badges</h1>
+			</div>
+			<div class='myBadgesListVertical'></div>
+		</div>
+
+		<script src="js/picker.js"></script>
+	    <script src="js/picker.date.js"></script>
+	    <script type='text/javascript'>
+	    $(function(){
+	    	$('.datepicker').pickadate()
+	    });
+	    	
+	    </script>
+		<script type='text/javascript' src='js/alljs.js'></script>
+	</body>
+</html>

@@ -16,7 +16,8 @@
     "koa-body": "0.0.4",
     "koa-router": "^3.1.2",
     "gulp-exec": "^1.0.4",
-    "koa-cors": "0.0.8"
+    "koa-cors": "0.0.8",
+    "koa-static": "^1.4.3"
   },
   "devDependencies": {
     "gulp": "^3.6.0"

@@ -1,0 +1,114 @@
+@font-face {font-family: 'hero'; src: url('fonts/Hero_Light.eot');}
+@font-face {font-family: 'hero'; src: url('fonts/Hero_Light.ttf');}
+@dark: #444; 
+
+/*--  GLOBALS --**/
+* {text-shadow:none !important;}
+img {border: none; outline: none; text-decoration: none;}
+body {margin: 0; padding:0;  width:100%; height: 100%; overflow:hidden; font-family: 'Source Sans Pro', 'helvetica', sans-serif;}
+.clear {clear: both;}
+.block {display: block;} 
+p, a {font-family: 'Source Sans Pro', 'helvetica', sans-serif;}
+a {text-decoration: none; border: none; text-decoration: none; color: #444; cursor:pointer;}
+a:hover {text-decoration:none; border:none; color: #444;}
+body {background-color:#000;}
+h1,h2,h3 {font-family: 'Source Sans Pro', 'helvetica', sans-serif; font-weight: 200; }
+h1 {font-size: 2.5em; font-weight: 200}
+h2 {font-size: 2em;}
+h3 {font-size: 1.5em; margin-bottom: 15px; margin-top: 35px;}
+hr {border-bottom: 1px solid #fff; border-top: 1px solid #ddd;}
+hr.darkhr {border-bottom:1px solid #3a3a3a; border-top:1px solid #252525;}
+
+.rounded-corners (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.shadow(@h:0px, @v:0px, @b:5px, @s:5px, @color:rgba(0,0,0,0.3)) {
+  -moz-box-shadow:    @h @v @b @s @color;
+  -webkit-box-shadow: @h @v @b @s @color;
+  box-shadow:         @h @v @b @s @color;
+}
+
+.blur {
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter: blur(20px);
+    opacity: 0.4;
+}
+
+.header { width:100%; position:absolute; top:0; z-index: 9999; padding-top:20px; padding-bottom:5px; text-align:center;  color: #fff;}
+.header h3 {margin:0;}
+.nav {display:none; width: 100%;  position:absolute; z-index:999; bottom:0px;}
+.navButton {text-align:center; width: 49.8%; border-top: 1px solid #222; float:left; color: #fff; letter-spacing: 2px;  cursor:pointer; background-color: rgba(255,255,255,0.2); padding-top: 30px; padding-bottom:30px;}
+.loginBtn {.navButton(); border-right: 1px solid #222;}
+.loginBtn:hover {background-color: rgba(230,230,230,0.5);}
+.registerBtn {.navButton()}
+.registerBtn:hover {background-color: rgba(230,230,230,0.5); }
+.createBountyBtn {.navButton(); border-right: 2px solid #222;}
+.createBountyBtn:hover {background-color: rgba(230,230,230,0.5);}
+.myBadgesBtn {.navButton();}
+.myBadgesBtn:hover {background-color: rgba(230,230,230,0.5);}
+
+.mapOverlay {width:100%; display:none; height: 100%; position:absolute; opacity: 0; top:0; cursor:pointer; z-index:9998;}
+.mapBountyDetails {display:none; position:absolute; padding:0px; color: #eee; padding-bottom: 10; width: 250px; top: 80px; .rounded-corners(2px); border:1px solid #aaa; .shadow(); z-index:9999; background-color: rgba(0,0,0,.8);}
+.mapBountyDetailsInner {padding:10px;}
+.mapBountyDetails h2 { margin:0;}
+.mapBountyName {}
+.mapBountyBadgeImage {float:left;}
+.mapBountyBadgeName {float:left; padding:5px; margin-left: 5px;}
+.spotDetailsNav {width: 50%; background-color: #fff; color: #333;float:left; padding-top:10px; padding-bottom: 10px; text-align:center; cursor:pointer;}
+.claimBadgeBtn {.spotDetailsNav(); display:none; background-color: #90D177 ;}
+.claimBadgeBtn:hover {background-color: #76AA62; }
+.commitToEventBtn { .spotDetailsNav();  }
+.commitToEventBtn:hover {background-color: #bbb;}
+.showEventDetailsBtn { .spotDetailsNav() }
+.showEventDetailsBtn:hover {background-color: #bbb; color: #333;}
+
+.closeBtn {background:url('../images/close.png') no-repeat; width:25px; height:25px; z-index: 9; position:absolute; top:15px; right: 15px; cursor:pointer;}
+.pageWrap {background-color: #333; overflow-y:scroll; background-image:url('../images/blurmap.png'); color: #fff; width:100%; height: 100%; position:absolute; top:0; z-index:99999;  position:absolute; top:0; z-index:9999;}
+.pageWrapInner {width: 100%; margin:auto; padding:15px; position:relative; background-color: rgba(0,0,0,.3);}
+.eventDetailsPageWrap { }
+.eventDetailsPageWrapInner {}
+
+.loginPageWrap { }
+.loginPageWrapInner {}
+
+.createBountyPageWrapInner {
+    div.ui-input-text {background-color: transparent !important; border: 1px solid #000 !important;}
+    input {color: #ccc; background-color: rgba(0,0,0,.7) !important; display:block; width:100%; padding: 10px; .rounded-corners; border: 1px solid #000 !important;}
+    textarea {color: #ccc; background-color: rgba(0,0,0,.7) !important; display:block; width:100%; padding: 10px; .rounded-corners; border: 1px solid #000 !important;}
+} 
+.chooseBountyMap {width:100%; height:200px;}
+.bountyCoordinates {font-size:.8em;}
+.badgeBox {padding:5px;  .rounded-corners(2px); float:left; cursor:pointer;}
+.badgeBox:hover {background-color: #222;}
+.badgeBox.current {border: 1px solid #ddd;}
+.getNewBadgeBtn {padding: 9px; margin: 10px 0px; border: 1px solid #000; background-color: rgba(0,0,0,.5); .rounded-corners(3px); cursor:pointer;}
+.getNewBadgeBtn:hover {background-color: #000;}
+.createBadgeBtn {padding:9px;  margin: 10px 0px; border: 1px solid #000;  background-color: rgba(0,0,0,.5); .rounded-corners(3px); cursor:pointer;}
+.createBadgeBtn:hover {background-color: #000;}
+
+.myBadgesListVertical {margin-left: 10px;}
+.badgeBoxVertical {float:left;}
+.badgeName {float:left;}
+
+.fbLogin {width: 234px; height:48px; background: url('../images/fbLogin.png') no-repeat; cursor:pointer; }
+.fbLogin:hover {background-position: 0px -48px;}
+.noFbLogin {display:none;}
+.loginWithoutFb{margin-top:10px; cursor:pointer;}
+.goHomeBtn {background-color: #eee; padding-top: 15px; padding-bottom: 15px; text-align:center; color: #333; position:absolute; bottom:0; width: 100%; cursor:pointer;}
+.goHomeBtn:hover {background-color: #ddd;}
+
+
+
+
+
+
+
+

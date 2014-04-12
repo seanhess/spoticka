@@ -2,6 +2,7 @@ var koa = require('koa')
 var router = require('koa-router')
 var body = require('koa-body')
 var cors = require('koa-cors')
+var serve = require('koa-static')
 
 var User = require('./model/User')
 var Event = require('./model/Event')
@@ -27,6 +28,7 @@ r.connect({host:'localhost', port:28015, db:'spoticka'}, function(err, c) {
 var app = koa()
 var url = "http://spoticka.orbit.al:5050"
 
+app.use(serve("./public"))
 app.use(cors())
 app.use(body())
 app.use(function*(next) {
