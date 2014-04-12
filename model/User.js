@@ -9,7 +9,7 @@ exports.init = function(r) {
     run = r
 }
 
-exports.findOne = function(id) {
+exports.findOne = function findOne(id) {
     return run(table.get(id))
 }
 
@@ -17,9 +17,13 @@ exports.findAll = function() {
     return run(table)
 }
 
-exports.insert = function*(item) {
-    delete item.id
-    var result = yield run(table.insert(item))
+// Creates the user if they don't exist by username
+exports.create = function*(user) {
+    user.id = user.username
+    if (!user.username) throw new Error("Missing user.username")
+    var found = yield exports.findOne(user.username)
+    if (found) return onlyId(found)
+    var result = yield run(table.insert(user))
     return db.toKey(result)
 }
 
@@ -27,6 +31,11 @@ exports.delete = function(id) {
     return run(table.get(id).delete())
 }
 
+function onlyId(obj) {
+    return {id: obj.id}
+}
+
+// username: "gisheri"
 // {generated_keys: ["asdfasdf"]}
 
 // key users by facebook

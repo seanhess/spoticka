@@ -75,7 +75,7 @@ app.delete('/users/:id', function*() {
 
 app.post('/users', function*() {
     var user = this.request.body
-    this.body = yield User.insert(user)
+    this.body = yield User.create(user)
 })
 
 
@@ -122,5 +122,6 @@ app.post('/badges', function*() {
 
 
 
-app.listen(5050)
-console.log("Started on 5050")
+var PORT = process.env.PORT || 5050
+app.listen(PORT)
+console.log("Started on", PORT)
