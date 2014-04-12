@@ -23,6 +23,10 @@ exports.insert = function*(item) {
     return db.toKey(result)
 }
 
+exports.save = function(id, item) {
+    return run(table.get(id).replace(item))
+}
+
 exports.delete = function(id) {
     return run(table.get(id).delete())
 }

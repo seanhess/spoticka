@@ -1,0 +1,14 @@
+<h1>GEO EXAMPLE</h1>
+
+
+<script>
+function getLocation() {
+    console.log("----geting")
+    navigator.geolocation.getCurrentPosition(function(position) {
+        console.log("LOCATION", position)
+    })
+}
+
+getLocation()
+console.log("HI")
+</script>

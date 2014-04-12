@@ -27,6 +27,10 @@ exports.create = function*(user) {
     return db.toKey(result)
 }
 
+exports.save = function(id, user) {
+    return run(table.get(id).replace(user))
+}
+
 exports.delete = function(id) {
     return run(table.get(id).delete())
 }

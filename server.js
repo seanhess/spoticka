@@ -69,6 +69,10 @@ app.get('/users/:id', function*() {
     this.body = user
 })
 
+app.put('/users/:id', function*() {
+    yield User.save(this.params.id, this.request.body)
+})
+
 app.delete('/users/:id', function*() {
     yield User.delete(this.params.id)
 })
@@ -87,6 +91,10 @@ app.get('/events', function*() {
 
 app.get('/events/:id', function*() {
     this.body = yield Event.findOne(this.params.id)
+})
+
+app.put('/events/:id', function*() {
+    yield Event.save(this.params.id, this.request.body)
 })
 
 app.delete('/events/:id', function*() {
@@ -108,6 +116,11 @@ app.get('/badges', function*() {
 app.get('/badges/:id', function*() {
     this.body = yield Badge.findOne(this.params.id)
 })
+
+app.put('/badges/:id', function*() {
+    yield Badge.save(this.params.id, this.request.body)
+})
+
 
 app.delete('/badges/:id', function*() {
     yield Badge.delete(this.params.id)
