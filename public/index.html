@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html> 
 	<head>
 
 		<meta name="viewport" content="width=device-width, user-scalable=no">
@@ -45,7 +45,7 @@
 		</div>
 
 		<!-- map bounty popup -->
-		<div class='mapBountyDetails'>
+		<div class='mapBountyDetails' data-bounty=''>
 			<div class='mapBountyDetailsInner'>
 				<h2 class='mapBountyPoints'></h2>
 				<h2 class='mapBountyName'></h2>
@@ -157,10 +157,10 @@
 				<h3>Step 3: Event Details</h3>
 				<input type='text' name='eventName' class='bountyRegisterName' placeholder='event Name'/>
 				<textarea name='eventDescription' class='bountyRegisterDescription' placeholder='event Description'></textarea>
-				<input type="text" data-role="date" data-inline="false" placeholder="Event Date">
+				<input type="text" data-role="date" data-inline="false" class='bountyRegisterDate' placeholder="Event Date">
 				<input type='hidden' id='bountyRegisterCoordinates'>
 				<input type='hidden' id='bountyRegisterBadgeName'>
-				<button role='button' class='btn btn-primary'>Submit</button>
+				<button role='button' class='btn btn-primary' id='submitEvent'>Submit</button>
 			</div>
 		</div>
 

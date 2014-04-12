@@ -1,10 +1,13 @@
-
+ 
 
 
 fbUser = {
 	status: 'not_connected',
 	loggedIn: 0,
-	switchToUserLayout:function(){
+
+	switchToUserLayout:function(user){
+		spoticka.currentUser = user;
+
 		$('.notLoggedInNav').hide();
 		$('.loggedInNav').show();
 		console.log('switched to user layout');
@@ -52,8 +55,10 @@ fbUser = {
 						console.log(result);
 						if(result){
 							fbUser.loggedIn = 1;
+							fbUser.user = user;
+							spoticka.initializeUser(user);
 							console.log('loggedIn Sucess');
-							fbUser.switchToUserLayout();
+							fbUser.switchToUserLayout(user);
 						}
 					}
 				});
@@ -87,7 +92,7 @@ fbUser = {
 
 
 spoticka = {
-	"bounties":[
+	/*"events":[
 		{
 			"bounty_id":1,
 			"name":"Event 1",
@@ -97,7 +102,7 @@ spoticka = {
 			"offerer":"gisheri",
 			"description":"This is going to be awesome!",
 			"coordinates":"37.764317,-113.051213",
-			"timeLeft":10
+			"date": "4/122014"
 
 		},
 		{
@@ -122,36 +127,78 @@ spoticka = {
 			"coordinates":"37.711399,-113.05811630000001",
 			"timeLeft":5
 		},
+	],*/
 
-	],
-
-	"isLoggedIn":function(){
+	isLoggedIn:function(){
 
 	},
 
-	"setMarkers":function() {
-		$.each(spoticka.bounties, function(i, bounty){
+	"getUser":function(username){
+		$.get('http://spoticka.orbit.al:5050/users/'+username, function(result){
+			spoticka.currentUser = result;
+			if(!spoticka.currentUser.badges){
+				spoticka.currentUser.badges = [];
+			}
+		})
+	},
+
+	"initializeUser":function(user){
+			spoticka.currentUser = user;
+			if(!spoticka.currentUser.badges){
+				spoticka.currentUser.badges = [];
+			}
+	},
+
+
+	getAllBadges:function(){
+		$.get('http://spoticka.orbit.al:5050/badges', function(result){
+			spoticka.badges = result;
+			$.each(spoticka.badges, function(i,badge){
+				var badgeHtml = $("<div class='badgeBox' data-badge='"+badge.name+"'><img src='images/badges/"+badge.image+".png'/></div>");
+				$('.myBadgesList').append(badgeHtml);
+				//
+				var profileBadgeHtml = $("<div class='badgeBoxVertical' data-badge='"+badge.name+"'><img src='images/badges/"+badge.image+".png'/><div class='badgeName'><h3>"+badge.name+"</h3></div><br class='clear'/>");
+				$('.myBadgesListVertical').append(profileBadgeHtml);
+			});
+		});
+	},
+
+	getAllEvents:function(){
+		$.get("http://spoticka.orbit.al:5050/events", function(result){
+			spoticka.events = result;
+			spoticka.showAllEvents();
+		});
+	},
+
+	showAllEvents:function(){
+		console.log('setting markers');
+		spoticka.setMarkers();
+	},
+
+	setMarkers:function() {
+		$.each(spoticka.events, function(i, bounty){
 			setTimeout(function() {
 				spoticka.addMarker(i);
 			}, (i+1) * 50);
 		});
 	},
 
-	"addListeners":function(){
+	addListeners:function(){
 		$.each(spoticka.markers, function(k,marker){
 			google.maps.even.addListener(marker, 'click', function(){
-				spoticka.showDetails(marker);
+				spoticka.showPopup(marker);
 			});
 		});
 	},
 
-	"addMarker":function(i) {
+	addMarker:function(i) {
 		console.log('adding marker');
-		var bounty = spoticka.bounties[i];
+		var bounty = spoticka.events[i];
 		var coordinates = bounty.coordinates.split(",");
 		var lat = parseFloat(coordinates[0]);
 		var lng = parseFloat(coordinates[1]);
 		var coords = new google.maps.LatLng(lat,lng);
+
 
 
 		var marker = new google.maps.Marker({
@@ -169,17 +216,17 @@ spoticka = {
 
 		//add event listeners
 		google.maps.event.addListener(marker, 'click', function(){
-			spoticka.showDetails(i);
+			spoticka.showPopup(i);
 		});
 
-		spoticka.bounties[i].marker = marker;
-		spoticka.bounties[i].position = {lat:lat, lng:lng}
+		spoticka.events[i].marker = marker;
+		spoticka.events[i].position = {lat:lat, lng:lng}
 	},
 
-	"showDetails":function(which, currentlyAt){
+	showPopup:function(which, currentlyAt){
 
-		var bounty = spoticka.bounties[which];
-		var marker = spoticka.bounties[which].marker
+		var bounty = spoticka.events[which];
+		var marker = spoticka.events[which].marker
 		var latLng = marker.position;
 		spoticka.map.panTo(latLng);
 		if(currentlyAt){
@@ -190,10 +237,11 @@ spoticka = {
 			$('.claimBadgeBtn').hide();
 			$('.commitToEventBtn').show();
 		}
-		//$('.mapOverlay').show();
+
 		console.log(bounty);
 		var box = $('.mapBountyDetails');
 		box.hide();
+		box.attr("data-bounty", which);
 		box.css({'left':($(window).width()/2)-box.width()/2})
 		box.find('.mapBountyName').text(bounty.name);
 		box.find('.mapBountyBadgeImage').find('img').attr("src", 'images/badges/'+bounty.badgeImage+'.png');
@@ -210,46 +258,49 @@ spoticka = {
 	},
 
 
-	getUserBadges:function(){
-		$.get('http://spoticka.orbit.al:5050/badges', function(result){
-			spoticka.myBadges = result;
-			$.each(spoticka.myBadges, function(i,badge){
-				var badgeHtml = $("<div class='badgeBox' data-badge='"+badge.name+"'><img src='images/badges/"+badge.image+".png'/></div>");
-				$('.myBadgesList').append(badgeHtml);
-				//
-				var profileBadgeHtml = $("<div class='badgeBoxVertical' data-badge='"+badge.name+"'><img src='images/badges/"+badge.image+".png'/><div class='badgeName'><h3>"+badge.name+"</h3></div><br class='clear'/>");
-				$('.myBadgesListVertical').append(profileBadgeHtml);
-			})
+	addBadgeToUser:function(badge){
+		spoticka.currentUser.badges.push(badge);
+		spoticka.updateUser();
+	},
+
+	updateUser:function(){
+		var url = "http://spoticka.orbit.al:5050/users/"+spoticka.currentUser.username
+		console.log(url);
+		$.ajax({
+			url : url,
+			type : "put",
+			data : spoticka.currentUser,
+			success: function(result){
+				console.log(result);
+			}
 		});
 	},
 
 
-	"submitBounty":function(){
+	submitEvent:function(){
+
+		//var badge = $.grep(spoticka.currentUser.badges, function(badge){return badge.name == $('#bountyRegisterBadgeName')});
+		
 		var bountyInfo = {
 			name: $('.bountyRegisterName').val(),
 			description:$('.bountyRegisterDescription').val(),
-			//badge: $('.')
+			badge: $('#bountyRegisterBadgeName').val(),
+			badgeImage: $('#bountyRegisterBadgeName').val().replace(" ", "_"),
+			date: $('#bountyRegisterDate').val(),
+			coordinates: $('#bountyRegisterCoordinates').val(),
+			host: spoticka.currentUser.username
 		}
+
+		$.post("http://spoticka.orbit.al:5050/events", bountyInfo, function(result){
+			console.log(result);
+			if(result.id){
+				location.reload();
+			}
+		});
+
 	},
 
-	"getAllBounties":function(){
-		var url = "";
-		$.ajax(	{url: url,
-			type: "GET",
-			success: function(result){
-					//spoticka.bounties = result;
-				}
-			}, 'json');
-		spoticka.showAllBounties();
-	},
-
-	"showAllBounties":function(){
-		console.log('setting markers');
-		spoticka.setMarkers();
-	},
-
-
-	"initializeMap":function(){
+	initializeMap:function(){
 		console.log('initializing map');
 		var dark1 = [
 		{
@@ -272,16 +323,12 @@ spoticka = {
 			zoomControl: true,
 			styles: dark1
 		});
-
-
-		spoticka.getAllBounties();
-
 	},
 	initializeBountyMap:function(){
 		map = new google.maps.Map($('#chooseBountyMap')[0], {
 				zoom: 10,
 				center: new google.maps.LatLng(37.703292, -113.131591),
-				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				mapTypeId: google.maps.MapTypeId.HYBRID,
 				disableDefaultUI: true,
 				zoomControl: true,
 				styles: [
@@ -373,21 +420,20 @@ var showLocation = function(position){
 	var lat = position.coords.latitude;
 	var lng = position.coords.longitude;
 
-	$.each(spoticka.bounties, function(i, bounty){
+	$.each(spoticka.events, function(i, bounty){
 		if(Math.abs(lat - bounty.position.lat) < .01 && Math.abs(lng - bounty.position.lng) < .01){
-			console.log("Youre at "+bounty.name);
-			console.log(bounty.coordinates);
+			//console.log("Youre at "+bounty.name);
+			//console.log(bounty.coordinates);
 			bounty.marker.setAnimation(google.maps.Animation.BOUNCE);
-			spoticka.atCurrentBounty = spoticka.bounties[i];
-			spoticka.showDetails(i, true);
+			spoticka.atCurrentBounty = spoticka.events[i];
+			spoticka.showPopup(i, true);
 		}
 		else {
 			bounty.marker.setAnimation(null);
 		}
 	})
 
-	console.log('Lat: ' + position.coords.latitude + ' ' +
-		'Lon: ' + position.coords.longitude);
+	//console.log('Lat: ' + position.coords.latitude + ' ' +'Lon: ' + position.coords.longitude);
 }
 
 var geocheck = setInterval(getLocation, 3000);
@@ -457,6 +503,16 @@ $(document).ready(function(){
 		$('.noFbLogin').slideDown();
 	});
 
+	$('#submitEvent').click(function(){
+		spoticka.submitEvent();
+	});
+
+	$('.claimBadgeBtn').click(function(){
+		var claimedBadge = $(this).closest(".mapBountyDetails").attr("data-bounty");
+		var claimedBadge = spoticka.badges[claimedBadge];
+		spoticka.addBadgeToUser(claimedBadge);
+	})
+
 	$('body').on('click','.badgeBox', function(){
 		$(this).siblings().removeClass("current");
 		$(this).addClass("current");
@@ -475,7 +531,8 @@ $(document).ready(function(){
 	$('#map').css({"width": "100%", "height": "100%"});
 	$('#chooseBountyMap').css({width: '100%', 'height':200});
 	spoticka.initializeMap();
-	spoticka.getUserBadges();
+	spoticka.getAllBadges();
+	spoticka.getAllEvents();
 
 
 
