@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		78717D8F18F9D2820035D07B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78717D8E18F9D2820035D07B /* Foundation.framework */; };
+		78717D9118F9D2820035D07B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78717D9018F9D2820035D07B /* CoreGraphics.framework */; };
+		78717D9318F9D2820035D07B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78717D9218F9D2820035D07B /* UIKit.framework */; };
+		78717D9918F9D2820035D07B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78717D9718F9D2820035D07B /* InfoPlist.strings */; };
+		78717D9B18F9D2820035D07B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78717D9A18F9D2820035D07B /* main.m */; };
+		78717D9F18F9D2820035D07B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78717D9E18F9D2820035D07B /* AppDelegate.m */; };
+		78717DA218F9D2820035D07B /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78717DA018F9D2820035D07B /* Main_iPhone.storyboard */; };
+		78717DA518F9D2820035D07B /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78717DA318F9D2820035D07B /* Main_iPad.storyboard */; };
+		78717DA818F9D2820035D07B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78717DA718F9D2820035D07B /* ViewController.m */; };
+		78717DAA18F9D2820035D07B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78717DA918F9D2820035D07B /* Images.xcassets */; };
+		78717DB118F9D2820035D07B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78717DB018F9D2820035D07B /* XCTest.framework */; };
+		78717DB218F9D2820035D07B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78717D8E18F9D2820035D07B /* Foundation.framework */; };
+		78717DB318F9D2820035D07B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78717D9218F9D2820035D07B /* UIKit.framework */; };
+		78717DBB18F9D2820035D07B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78717DB918F9D2820035D07B /* InfoPlist.strings */; };
+		78717DBD18F9D2820035D07B /* SpotickaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78717DBC18F9D2820035D07B /* SpotickaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		78717DB418F9D2820035D07B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 78717D8318F9D2820035D07B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78717D8A18F9D2820035D07B;
+			remoteInfo = Spoticka;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		78717D8B18F9D2820035D07B /* Spoticka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoticka.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78717D8E18F9D2820035D07B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		78717D9018F9D2820035D07B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		78717D9218F9D2820035D07B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		78717D9618F9D2820035D07B /* Spoticka-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Spoticka-Info.plist"; sourceTree = "<group>"; };
+		78717D9818F9D2820035D07B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		78717D9A18F9D2820035D07B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		78717D9C18F9D2820035D07B /* Spoticka-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spoticka-Prefix.pch"; sourceTree = "<group>"; };
+		78717D9D18F9D2820035D07B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		78717D9E18F9D2820035D07B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		78717DA118F9D2820035D07B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		78717DA418F9D2820035D07B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		78717DA618F9D2820035D07B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		78717DA718F9D2820035D07B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		78717DA918F9D2820035D07B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		78717DAF18F9D2820035D07B /* SpotickaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotickaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		78717DB018F9D2820035D07B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		78717DB818F9D2820035D07B /* SpotickaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpotickaTests-Info.plist"; sourceTree = "<group>"; };
+		78717DBA18F9D2820035D07B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		78717DBC18F9D2820035D07B /* SpotickaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpotickaTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		78717D8818F9D2820035D07B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78717D9118F9D2820035D07B /* CoreGraphics.framework in Frameworks */,
+				78717D9318F9D2820035D07B /* UIKit.framework in Frameworks */,
+				78717D8F18F9D2820035D07B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78717DAC18F9D2820035D07B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78717DB118F9D2820035D07B /* XCTest.framework in Frameworks */,
+				78717DB318F9D2820035D07B /* UIKit.framework in Frameworks */,
+				78717DB218F9D2820035D07B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		78717D8218F9D2820035D07B = {
+			isa = PBXGroup;
+			children = (
+				78717D9418F9D2820035D07B /* Spoticka */,
+				78717DB618F9D2820035D07B /* SpotickaTests */,
+				78717D8D18F9D2820035D07B /* Frameworks */,
+				78717D8C18F9D2820035D07B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		78717D8C18F9D2820035D07B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				78717D8B18F9D2820035D07B /* Spoticka.app */,
+				78717DAF18F9D2820035D07B /* SpotickaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		78717D8D18F9D2820035D07B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78717D8E18F9D2820035D07B /* Foundation.framework */,
+				78717D9018F9D2820035D07B /* CoreGraphics.framework */,
+				78717D9218F9D2820035D07B /* UIKit.framework */,
+				78717DB018F9D2820035D07B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		78717D9418F9D2820035D07B /* Spoticka */ = {
+			isa = PBXGroup;
+			children = (
+				78717D9D18F9D2820035D07B /* AppDelegate.h */,
+				78717D9E18F9D2820035D07B /* AppDelegate.m */,
+				78717DA018F9D2820035D07B /* Main_iPhone.storyboard */,
+				78717DA318F9D2820035D07B /* Main_iPad.storyboard */,
+				78717DA618F9D2820035D07B /* ViewController.h */,
+				78717DA718F9D2820035D07B /* ViewController.m */,
+				78717DA918F9D2820035D07B /* Images.xcassets */,
+				78717D9518F9D2820035D07B /* Supporting Files */,
+			);
+			path = Spoticka;
+			sourceTree = "<group>";
+		};
+		78717D9518F9D2820035D07B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				78717D9618F9D2820035D07B /* Spoticka-Info.plist */,
+				78717D9718F9D2820035D07B /* InfoPlist.strings */,
+				78717D9A18F9D2820035D07B /* main.m */,
+				78717D9C18F9D2820035D07B /* Spoticka-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		78717DB618F9D2820035D07B /* SpotickaTests */ = {
+			isa = PBXGroup;
+			children = (
+				78717DBC18F9D2820035D07B /* SpotickaTests.m */,
+				78717DB718F9D2820035D07B /* Supporting Files */,
+			);
+			path = SpotickaTests;
+			sourceTree = "<group>";
+		};
+		78717DB718F9D2820035D07B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				78717DB818F9D2820035D07B /* SpotickaTests-Info.plist */,
+				78717DB918F9D2820035D07B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		78717D8A18F9D2820035D07B /* Spoticka */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78717DC018F9D2820035D07B /* Build configuration list for PBXNativeTarget "Spoticka" */;
+			buildPhases = (
+				78717D8718F9D2820035D07B /* Sources */,
+				78717D8818F9D2820035D07B /* Frameworks */,
+				78717D8918F9D2820035D07B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Spoticka;
+			productName = Spoticka;
+			productReference = 78717D8B18F9D2820035D07B /* Spoticka.app */;
+			productType = "com.apple.product-type.application";
+		};
+		78717DAE18F9D2820035D07B /* SpotickaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78717DC318F9D2820035D07B /* Build configuration list for PBXNativeTarget "SpotickaTests" */;
+			buildPhases = (
+				78717DAB18F9D2820035D07B /* Sources */,
+				78717DAC18F9D2820035D07B /* Frameworks */,
+				78717DAD18F9D2820035D07B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				78717DB518F9D2820035D07B /* PBXTargetDependency */,
+			);
+			name = SpotickaTests;
+			productName = SpotickaTests;
+			productReference = 78717DAF18F9D2820035D07B /* SpotickaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		78717D8318F9D2820035D07B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Orbital Labs";
+				TargetAttributes = {
+					78717D8A18F9D2820035D07B = {
+						DevelopmentTeam = HPFDF49E54;
+					};
+					78717DAE18F9D2820035D07B = {
+						TestTargetID = 78717D8A18F9D2820035D07B;
+					};
+				};
+			};
+			buildConfigurationList = 78717D8618F9D2820035D07B /* Build configuration list for PBXProject "Spoticka" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 78717D8218F9D2820035D07B;
+			productRefGroup = 78717D8C18F9D2820035D07B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				78717D8A18F9D2820035D07B /* Spoticka */,
+				78717DAE18F9D2820035D07B /* SpotickaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		78717D8918F9D2820035D07B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78717DA518F9D2820035D07B /* Main_iPad.storyboard in Resources */,
+				78717DAA18F9D2820035D07B /* Images.xcassets in Resources */,
+				78717DA218F9D2820035D07B /* Main_iPhone.storyboard in Resources */,
+				78717D9918F9D2820035D07B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78717DAD18F9D2820035D07B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78717DBB18F9D2820035D07B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		78717D8718F9D2820035D07B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78717DA818F9D2820035D07B /* ViewController.m in Sources */,
+				78717D9F18F9D2820035D07B /* AppDelegate.m in Sources */,
+				78717D9B18F9D2820035D07B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78717DAB18F9D2820035D07B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78717DBD18F9D2820035D07B /* SpotickaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		78717DB518F9D2820035D07B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 78717D8A18F9D2820035D07B /* Spoticka */;
+			targetProxy = 78717DB418F9D2820035D07B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		78717D9718F9D2820035D07B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78717D9818F9D2820035D07B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		78717DA018F9D2820035D07B /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78717DA118F9D2820035D07B /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		78717DA318F9D2820035D07B /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78717DA418F9D2820035D07B /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		78717DB918F9D2820035D07B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78717DBA18F9D2820035D07B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		78717DBE18F9D2820035D07B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		78717DBF18F9D2820035D07B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		78717DC118F9D2820035D07B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Spoticka/Spoticka-Prefix.pch";
+				INFOPLIST_FILE = "Spoticka/Spoticka-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		78717DC218F9D2820035D07B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Spoticka/Spoticka-Prefix.pch";
+				INFOPLIST_FILE = "Spoticka/Spoticka-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		78717DC418F9D2820035D07B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Spoticka.app/Spoticka";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Spoticka/Spoticka-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SpotickaTests/SpotickaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		78717DC518F9D2820035D07B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Spoticka.app/Spoticka";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Spoticka/Spoticka-Prefix.pch";
+				INFOPLIST_FILE = "SpotickaTests/SpotickaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		78717D8618F9D2820035D07B /* Build configuration list for PBXProject "Spoticka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78717DBE18F9D2820035D07B /* Debug */,
+				78717DBF18F9D2820035D07B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78717DC018F9D2820035D07B /* Build configuration list for PBXNativeTarget "Spoticka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78717DC118F9D2820035D07B /* Debug */,
+				78717DC218F9D2820035D07B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78717DC318F9D2820035D07B /* Build configuration list for PBXNativeTarget "SpotickaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78717DC418F9D2820035D07B /* Debug */,
+				78717DC518F9D2820035D07B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 78717D8318F9D2820035D07B /* Project object */;
+}

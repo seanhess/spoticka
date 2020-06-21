@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>378BF6DD-8254-47F9-8C2E-8C07A4D9E0D5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Spoticka</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>48ABB203-55CF-4BCB-90AC-2D541D95B384</key>
+		<string>ssh://github.com/seanhess/spoticka.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Spoticka/Spoticka.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>48ABB203-55CF-4BCB-90AC-2D541D95B384</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/seanhess/spoticka.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>48ABB203-55CF-4BCB-90AC-2D541D95B384</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>48ABB203-55CF-4BCB-90AC-2D541D95B384</string>
+			<key>IDESourceControlWCCName</key>
+			<string>spoticka</string>
+		</dict>
+	</array>
+</dict>
+</plist>
